@@ -1,0 +1,13 @@
+@mixin responsive($bkr) {
+  @if $bkr == toLarge {
+    @media screen and (max-width: 960px) {
+      @content;
+    }
+  }
+
+  @if $bkr == toMedium {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
