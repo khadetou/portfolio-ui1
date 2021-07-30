@@ -1,9 +1,10 @@
-import NavbarItems from "./NavbarItems";
 import styles from "@/styles/style.module.scss";
+
 import { Link as LS } from "react-scroll";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
-export default function Navbar() {
+import { navEl } from "./Navbar.data";
+export default function Navbar({ toggle }) {
   const {
     container,
     nav,
@@ -16,37 +17,25 @@ export default function Navbar() {
     nav__btn,
     nav__btnLink,
   } = styles;
+
   return (
     <nav className={nav}>
       <div className={`${nav__container} ${container}`}>
         <Link href="/">
           <a className={nav__logo}>dolla</a>
         </Link>
-        <div className={nav__mobileIcon}>
+        <div className={nav__mobileIcon} onClick={toggle}>
           <FaBars />
         </div>
 
         <ul className={nav__menu}>
-          <li className={nav__item}>
-            <LS to="about" className={nav__link}>
-              About
-            </LS>
-          </li>
-          <li className={nav__item}>
-            <LS to="discover" className={nav__link}>
-              Discover
-            </LS>
-          </li>
-          <li className={nav__item}>
-            <LS to="services" className={nav__link}>
-              Services
-            </LS>
-          </li>
-          <li className={nav__item}>
-            <LS to="signup" className={nav__link}>
-              Sign Up
-            </LS>
-          </li>
+          {navEl.map((el, idx) => (
+            <li className={nav__item} key={idx}>
+              <LS to={el.path} className={nav__link}>
+                {el.name}
+              </LS>
+            </li>
+          ))}
         </ul>
         <div className={nav__btn}>
           <Link href="/signIn">

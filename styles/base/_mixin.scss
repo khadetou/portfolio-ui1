@@ -10,4 +10,9 @@
       @content;
     }
   }
+  @if $bkr == toSmall {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+  }
 }
