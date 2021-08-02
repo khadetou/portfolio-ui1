@@ -15,6 +15,7 @@ export default function HeroSection() {
     hero__btn,
     hero__arrowF,
     hero__arrowR,
+    button,
   } = styles;
 
   const [hover, setHover] = useState(false);
@@ -43,7 +44,7 @@ export default function HeroSection() {
           </p>
           <div className={hero__btnWrapper}>
             <button
-              className={hero__btn}
+              className={`${hero__btn} ${button}`}
               to="signUp"
               onMouseEnter={hoverHandler}
               onMouseLeave={hoverHandler}
