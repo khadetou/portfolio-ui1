@@ -1,5 +1,4 @@
 import styles from "@/styles/style.module.scss";
-
 import { Link as LS } from "react-scroll";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
